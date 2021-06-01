@@ -27,12 +27,20 @@ export default createStore({
   mutations: {
     add_todo(state,todo){
       state.todos.push(todo)
-      console.log(todo)
+    },
+    update_todo(state,todo){
+      let index = state.todos.findIndex(t=> t.id == todo.id)
+      if(index != 1){
+        state.todos[index]=todo;
+      }
     }
   },
   actions: {
     addTodos({commit}, todo){
       commit('add_todo', todo);
+    },
+    updateTodo({commit},todo){
+      commit('update_todo',todo)
     }
   },
   modules: {

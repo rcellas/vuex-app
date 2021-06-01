@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="row">
-        <input v-model="todoText" class=" col-md form-control" type="text">
+        <input @change="todoTextChange" v-bind:value="todoText" class=" col-md form-control" type="text">
         <button @click="addTodoInput" class="btn btn-primary col-md-4">Add</button>
       </div>
   </div>
@@ -19,27 +19,19 @@ export default {
     },
     methods:{
         ...mapActions(["addTodos"]),
+        todoTextChange (e){
+            this.todoText = e.target.value;
+        },
         addTodoInput(){
             this.addTodos({
                 id: v1(),
                 title: this.todoText
-            })
+            });
+            this.todoText = '';
         }
     }
-//   name: 'App',
-//   // components: {
-//   //   HelloWorld
-//   // }
 }
 </script>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
 </style>

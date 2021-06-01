@@ -2,22 +2,20 @@
   <div id="app" class="container">
     <TodoInput/>
     <TodoList/>
-    <TodoItem/>
+    
   </div>
 </template>
 
 <script>
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
-import TodoItem from './components/TodoItem.vue'
 
 
 export default {
   name: 'App',
   components: {
     TodoInput,
-    TodoList,
-    TodoItem
+    TodoList
   }
 }
 </script>
