@@ -1,8 +1,8 @@
 <template>
   <div>
       <div class="row">
-        <input @change="todoTextChange" v-bind:value="todoText" class=" col-md form-control" type="text">
-        <button @click="addTodoInput" class="btn btn-primary col-md-4">Add</button>
+        <input @change="todoTextChange" v-bind:value="todoText" class=" col-lg form-control input-create" type="text" placeholder="Add a new task">
+        <button @click="addTodoInput" class="btn btn-color col-lg-4">Add</button>
       </div>
   </div>
 </template>
@@ -35,4 +35,11 @@ export default {
 </script>
 
 <style>
+    .form-control{
+        margin-right: 20px;
+    }
+    .btn-color{
+        background: #6b0f1a !important;
+        color: #fff !important;
+    }
 </style>

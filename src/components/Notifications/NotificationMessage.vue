@@ -1,6 +1,6 @@
 <template>
   <div
-    class="alert alert-primary d-flex align-items-center alert-dismissible fade show"
+    class="alert alert-success d-flex align-items-center alert-dismissible fade show"
     :class="{ show: show }"
     role="alert"
   >
@@ -21,12 +21,6 @@
     <div>
       {{ notification.msg }}
     </div>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
   </div>
 </template>
 
