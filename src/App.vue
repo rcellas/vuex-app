@@ -3,6 +3,7 @@
     <h1 class="title-app">To-do list vue/vuex</h1>
       <TodoInput/>
       <TodoList/>
+      <!-- <AxiosTemplate/> -->
       <NotificationList/>
   </div>
 </template>
@@ -11,14 +12,15 @@
 import TodoInput from './components/Todo/TodoInput.vue'
 import TodoList from './components/Todo/TodoList.vue'
 import NotificationList from './components/Notifications/NotificationList.vue';
-
+// import AxiosTemplate from './components/axiosExample/AxiosTemplate.vue';
 
 export default {
   name: 'App',
   components: {
     TodoInput,
     TodoList,
-    NotificationList
+    NotificationList,
+    // AxiosTemplate
   }
 }
 </script>
