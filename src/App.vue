@@ -34,7 +34,7 @@ export default {
   color: #fff;
   background-image: linear-gradient(326deg, #861657 0%, #ffa69e 74%);
   padding-top: 30px;
-  height: 100vh;
+  height: 100%;
 }
 
 #app .title-app{
@@ -44,5 +44,11 @@ export default {
 #app .content-app{
   background-color: #f6f6f6;
 background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%);
+}
+
+@media (max-width: 750px) {
+  #app{
+    height: auto;
+  }
 }
 </style>
