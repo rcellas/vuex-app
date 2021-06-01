@@ -31,6 +31,7 @@ export default createStore({
     // set_todo(state,todos){
     //   state.todos = todos
     // },
+    
     notification_app(state, notification) {
       state.notifications.push({
         ...notification,
@@ -46,6 +47,15 @@ export default createStore({
         state.todos[index] = todo;
       }
     },
+    // post_todo(state,todos){
+      // state.todos.push(todo);
+    // },
+    // put_todo(state,todos){
+      //   let index = state.todos.findIndex((t) => t.id == todo.id);
+      // if (index != 1) {
+      //   state.todos[index] = todo;
+      // }
+    // },
   },
   actions: {
     addNotification({ commit }, notification) {
@@ -74,11 +84,30 @@ export default createStore({
       );
     },
     // función para llamar a los axios
+    // mostrar los datos
     // getTodos({ commit }) {
     //   axios
     //     .get("https://my-json-server.typicode.com/rcellas/data-bd")
     //     .then((todos) => {
     //       commit("set_todo", todos.data);
+    //     });
+    // },
+
+    // Esta sería para hacer el create
+    // postTodos({ commit }) {
+    //   axios
+    //     .post("https://my-json-server.typicode.com/rcellas/data-bd")
+    //     .then((todos) => {
+    //       commit("post_todo", todos.data);
+    //     });
+    // },
+
+    // Esta sería para hacer el update 
+    // putTodos({ commit }) {
+    //   axios
+    //     .put("https://my-json-server.typicode.com/rcellas/data-bd")
+    //     .then((todos) => {
+    //       commit("put_todo", todos.data);
     //     });
     // },
   },
