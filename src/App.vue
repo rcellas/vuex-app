@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
-    <h1 class="title-app">To-do list vue/vuex</h1>
-      <TodoInput/>
+    <h1 class="title-app">Task list vue/vuex</h1>
+      <TodoButtonAdd/>
       <TodoList/>
       <!-- <AxiosTemplate/> -->
       <NotificationList/>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import TodoInput from './components/Todo/TodoInput.vue'
+import TodoButtonAdd from './components/Todo/TodoButtonAdd.vue'
 import TodoList from './components/Todo/TodoList.vue'
 import NotificationList from './components/Notifications/NotificationList.vue';
 // import AxiosTemplate from './components/axiosExample/AxiosTemplate.vue';
@@ -17,7 +17,7 @@ import NotificationList from './components/Notifications/NotificationList.vue';
 export default {
   name: 'App',
   components: {
-    TodoInput,
+    TodoButtonAdd,
     TodoList,
     NotificationList,
     // AxiosTemplate
@@ -32,7 +32,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  /* background-color: #861657; */
   background-image: linear-gradient(326deg, #861657 0%, #ffa69e 74%);
   padding-top: 30px;
   height: 100vh;

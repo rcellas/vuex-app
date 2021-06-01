@@ -5,20 +5,24 @@ export default createStore({
   state: {
     todos: [
       {
-        "id": 1,
-        "title": "aa"
+        id: 1,
+        title: "aa",
+        date:'1998-02-24'
       },
       {
-        "id": 2,
-        "title": "bb"
+        id: 2,
+        title: "bb",
+        date:'1998-02-24'
       },
       {
-        "id": 3,
-        "title": "cc"
+        id: 3,
+        title: "cc",
+        date:'1998-02-24'
       },
       {
-        "id": 4,
-        "title": "dd"
+        id: 4,
+        title: "dd",
+        date:'1998-02-24'
       }
     ],
     notifications: [],
