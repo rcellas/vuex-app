@@ -2,6 +2,7 @@
   <div id="app" class="container">
     <TodoInput/>
     <TodoList/>
+    <NotificationList/>
     
   </div>
 </template>
@@ -9,13 +10,15 @@
 <script>
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
+import NotificationList from './components//NotificationList.vue';
 
 
 export default {
   name: 'App',
   components: {
     TodoInput,
-    TodoList
+    TodoList,
+    NotificationList
   }
 }
 </script>

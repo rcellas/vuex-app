@@ -21,6 +21,7 @@ export default {
         ...mapActions(["addTodos"]),
         todoTextChange (e){
             this.todoText = e.target.value;
+            
         },
         addTodoInput(){
             this.addTodos({

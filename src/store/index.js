@@ -19,12 +19,19 @@ export default createStore({
         id:4,
         title: 'dd'
       }
-    ]
+    ],
+    notifications:[]
   },
   getters:{
     allTodos:(state)=>state.todos,
   },
   mutations: {
+    notification_app(state,notification){
+      state.notifications.push({
+        ...notification,
+        id: (Math.random().toString(36)+Date.now().toString(36)).substr(2)
+      })
+    },
     add_todo(state,todo){
       state.todos.push(todo)
     },
@@ -33,15 +40,26 @@ export default createStore({
       if(index != 1){
         state.todos[index]=todo;
       }
-    }
+    },
   },
   actions: {
-    addTodos({commit}, todo){
-      commit('add_todo', todo);
+    addNotification({commit},notification){
+      commit('notification_app',notification)
     },
-    updateTodo({commit},todo){
+    addTodos({commit, dispatch}, todo){
+      commit('add_todo', todo);
+      dispatch('addNotification',{
+        type:'success',
+        msg: 'Has been created successfully'
+      },{root:true})
+    },
+    updateTodo({commit,dispatch},todo){
       commit('update_todo',todo)
-    }
+      dispatch('addNotification',{
+        type:'success',
+        msg: 'Has been updated successfully'
+      },{root:true})
+    },
   },
   modules: {
   }
