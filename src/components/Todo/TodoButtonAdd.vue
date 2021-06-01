@@ -4,35 +4,39 @@
       <div class="modal-overlay" v-if="showModal">
         <div>
           <div class="modalVue">
-            <h2 class="title-modal">Create a new Task</h2>
-            <div class="mb-3">
-              <label class="form-label title-modal">Task</label>
-              <input
-                @change="todoTextChange"
-                v-bind:value="todoText"
-                class=" col-lg form-control input-create"
-                type="text"
-                placeholder="Add a new task"
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label title-modal">Date task</label>
-              <input
-                @change="todoDateChange"
-                v-bind:value="todoDate"
-                class=" col-lg form-control input-create"
-                type="date"
-                placeholder="Add a new date"
-              />
-            </div>
-            <button
-              @click="addTodoInput"
-              type="button"
-              data-bs-dismiss="modal"
-              class="btn btn-color col-lg-4"
-            >
-              Add
-            </button>
+            <form @submit="addTodoInput">
+              <h2 class="title-modal">Create a new Task</h2>
+              <p v-if="errors.length">
+                <b v-for="error in errors" :key="error">{{ error }}</b>
+              </p>
+              <div class="mb-3">
+                <label class="form-label title-modal">Task</label>
+                <input
+                  @change="todoTextChange"
+                  v-bind:value="todoText"
+                  class=" col-lg form-control input-create"
+                  type="text"
+                  placeholder="Add a new task"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label title-modal">Date task</label>
+                <input
+                  @change="todoDateChange"
+                  v-bind:value="todoDate"
+                  class=" col-lg form-control input-create"
+                  type="date"
+                  placeholder="Add a new date"
+                />
+              </div>
+              <button
+                type="submit"
+                data-bs-dismiss="modal"
+                class="btn btn-color col-lg-4"
+              >
+                Add
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -53,6 +57,7 @@ export default {
     return {
       todoText: "",
       todoDate: "",
+      errors: [],
       showModal: false,
     };
   },
@@ -64,15 +69,21 @@ export default {
     todoDateChange(e) {
       this.todoDate = e.target.value;
     },
-    addTodoInput() {
-      this.showModal = false;
-      this.addTodos({
-        id: v1(),
-        title: this.todoText,
-        date: this.todoDate,
-      });
-      this.todoText = "";
-      this.todoDate = "";
+    addTodoInput(e) {
+      this.errors = [];
+      if (!this.todoText || !this.todoDate) {
+        this.errors.push("You have left an unfilled input");
+      } else {
+        this.showModal = false;
+        this.addTodos({
+          id: v1(),
+          title: this.todoText,
+          date: this.todoDate,
+        });
+        this.todoText = "";
+        this.todoDate = "";
+      }
+      e.preventDefault();
     },
   },
 };
@@ -110,8 +121,9 @@ html {
   background: #fff;
   z-index: 98;
   width: 350px;
-  height: 350px;
+  height: 400px;
   padding: 40px;
+  border-radius: 4px;
 }
 .modal-overlay {
   position: absolute;

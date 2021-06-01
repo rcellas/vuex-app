@@ -31,14 +31,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #fff;
   background-image: linear-gradient(326deg, #861657 0%, #ffa69e 74%);
   padding-top: 30px;
   height: 100%;
+  
 }
 
 #app .title-app{
   margin-bottom: 20px;
+   color: #fff;
 }
 
 #app .content-app{
